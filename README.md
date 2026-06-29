@@ -1,64 +1,64 @@
-# Bluetooth Audio Manager para Home Assistant
+# Bluetooth Audio Manager for Home Assistant
 
-Un componente personalizado (Custom Component) para Home Assistant que te permite gestionar, emparejar y conectar dispositivos de audio Bluetooth fácilmente desde la interfaz de Home Assistant. Esta integración soluciona los problemas comunes de audio al conectar altavoces Bluetooth en instalaciones de Home Assistant OS/Supervised, recargando automáticamente el subsistema de audio cuando se conecta un dispositivo.
+A custom component for Home Assistant that allows you to easily manage, pair, and connect Bluetooth audio devices directly from the Home Assistant interface. This integration solves common audio issues when connecting Bluetooth speakers to Home Assistant OS/Supervised by automatically reloading the audio subsystem when a device connects.
 
 ![Icon](icon.svg)
 
-### 1. Instalar vía HACS
-*(Nota: Asegúrate de que tu repositorio en GitHub sea **Público**. Si es privado, HACS no lo encontrará).*
+### 1. Install via HACS
+*(Note: Make sure your GitHub repository is **Public**. If it is private, HACS won't be able to find it).*
 
-Haz clic en el siguiente botón para abrir HACS y añadir este repositorio a tu Home Assistant. Si el botón te da error, puedes añadir manualmente la URL `https://github.com/EspiThekiller/bluetooth_audio_manager` en HACS (Integraciones > 3 puntitos > Repositorios Personalizados).
+Click the button below to open HACS and automatically add this repository to your Home Assistant. If the button fails, you can manually add the URL `https://github.com/EspiThekiller/bluetooth_audio_manager` in HACS (Integrations > 3 dots > Custom repositories).
 
-[![Añadir repositorio a HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=EspiThekiller&repository=bluetooth_audio_manager&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=EspiThekiller&repository=bluetooth_audio_manager&category=integration)
 
 ***
 
-### 2. Añadir y Configurar la Integración
-Una vez que hayas instalado el componente desde HACS y hayas **reiniciado Home Assistant**, haz clic en el siguiente botón para abrir la configuración y empezar a emparejar tus dispositivos de audio Bluetooth.
+### 2. Add and Configure Integration
+Once you have installed the component from HACS and **restarted Home Assistant**, click the button below to open the setup flow and start pairing your Bluetooth audio devices.
 
-[![Configurar Integración](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=bluetooth_audio_manager)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=bluetooth_audio_manager)
 
-## Características
+## Features
 
-- **Configuración desde la Interfaz (Config Flow):** Escanea y selecciona fácilmente los dispositivos Bluetooth cercanos desde la pestaña de Integraciones. ¡Sin tocar código YAML!
-- **Emparejamiento Automático:** Empareja y da permisos de confianza (trust) de forma automática al dispositivo Bluetooth seleccionado a través de `bluetoothctl`.
-- **Interruptor de Conexión:** Crea una entidad de tipo interruptor (switch) para conectar o desconectar manualmente tu dispositivo Bluetooth en cualquier momento.
-- **Sensor de Estado:** Crea un sensor binario que monitorea en tiempo real el estado de conectividad del dispositivo.
-- **Recarga de Audio Integrada:** Utiliza la API del Supervisor de Home Assistant para recargar el audio automáticamente (`http://supervisor/audio/reload`) al conectarse, asegurando que la salida de sonido pase correctamente al dispositivo Bluetooth.
-- **Servicio Personalizado:** Expone el servicio `bluetooth_audio_manager.connect_and_reload`, ideal para ser llamado desde tus automatizaciones y scripts.
+- **UI Configuration (Config Flow):** Easily scan and select nearby Bluetooth devices straight from the Integrations UI. No YAML configuration required!
+- **Automatic Pairing & Trusting:** Automatically pairs and trusts the selected Bluetooth device during setup via `bluetoothctl`.
+- **Connection Switch:** Provides a switch entity so you can manually connect or disconnect your Bluetooth device at any time.
+- **Connection Sensor:** Provides a binary sensor entity that monitors the real-time connectivity status of your device.
+- **Integrated Audio Reload:** Uses the Home Assistant Supervisor API to automatically reload audio (`http://supervisor/audio/reload`) upon connection, ensuring the sound output correctly switches to the Bluetooth device.
+- **Custom Service:** Exposes the `bluetooth_audio_manager.connect_and_reload` service, perfectly suited to be called from your automations and scripts.
 
-## Requisitos Previos
+## Prerequisites
 
-- Home Assistant OS o Home Assistant Supervised (se requiere el `SUPERVISOR_TOKEN` para la recarga del audio).
-- El equipo host (donde corre Home Assistant) debe tener capacidades Bluetooth y la herramienta `bluetoothctl` instalada y accesible.
+- Home Assistant OS or Home Assistant Supervised (`SUPERVISOR_TOKEN` is required to reload audio).
+- The host system (where Home Assistant runs) must have Bluetooth capabilities and the `bluetoothctl` tool installed and accessible.
 
-## Instalación Manual
+## Manual Installation
 
-1. Descarga o clona este repositorio.
-2. Copia la carpeta `bluetooth_audio_manager` en el directorio `custom_components` de tu instalación de Home Assistant (`/config/custom_components/`).
-3. Reinicia Home Assistant.
-4. Ve a **Ajustes** > **Dispositivos y servicios** > **Añadir Integración**.
-5. Busca "Bluetooth Audio Manager" y sigue las instrucciones en pantalla para escanear y seleccionar tu dispositivo Bluetooth.
+1. Download or clone this repository.
+2. Copy the `bluetooth_audio_manager` folder into your Home Assistant's `custom_components` directory (`/config/custom_components/`).
+3. Restart Home Assistant.
+4. Go to **Settings** > **Devices & Services** > **Add Integration**.
+5. Search for "Bluetooth Audio Manager" and follow the on-screen instructions to scan and select your Bluetooth device.
 
-## Servicios
+## Services
 
 ### `bluetooth_audio_manager.connect_and_reload`
 
-Se conecta al dispositivo Bluetooth especificado y fuerza una recarga del audio en el Supervisor.
+Connects to the specified Bluetooth device and forces an audio reload on the Supervisor.
 
-| Atributo | Opcional | Descripción |
-| -------- | -------- | ----------- |
-| `mac_address` | Sí | La dirección MAC del dispositivo Bluetooth (ej., `00:11:22:33:44:55`). Si se omite, se usará la dirección MAC configurada por defecto en la integración. |
+| Attribute | Optional | Description |
+| --------- | -------- | ----------- |
+| `mac_address` | Yes | The MAC address of the Bluetooth device (e.g., `00:11:22:33:44:55`). If omitted, it will use the default MAC address configured in the integration. |
 
-## Entidades Creadas
+## Entities Created
 
-Por cada dispositivo configurado, se crean las siguientes entidades:
-- `switch.<nombre_dispositivo>_connect`: Interruptor para encender o apagar la conexión del dispositivo.
-- `binary_sensor.<nombre_dispositivo>_connection`: Indica si el dispositivo está actualmente conectado o no.
+For each configured device, the following entities are created:
+- `switch.<device_name>_connect`: A switch to toggle the device connection on or off.
+- `binary_sensor.<device_name>_connection`: Indicates whether the device is currently connected or not.
 
-*(Nota: Ambas entidades vienen con un icono por defecto de una nota musical `mdi:music-note`).*
+*(Note: Both entities come with a `mdi:music-note` icon by default).*
 
-## Solución de Problemas
+## Troubleshooting
 
-- **No se encuentran dispositivos durante la configuración:** Asegúrate de que el host de Home Assistant tiene el Bluetooth encendido y que el altavoz o auricular que quieres añadir está en modo emparejamiento (pairing).
-- **El audio no se recarga tras conectar:** Esta característica requiere Home Assistant OS o Supervised. Si ejecutas Home Assistant en versión Container o Core puro, la API del Supervisor no estará disponible.
+- **No devices found during setup:** Ensure that the Home Assistant host has Bluetooth turned on and that the speaker or headset you want to add is in pairing mode.
+- **Audio not reloading after connection:** This feature requires Home Assistant OS or Supervised. If you are running a pure Home Assistant Container or Core setup, the Supervisor API is not available.
