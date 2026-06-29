@@ -1,0 +1,20 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vincular Dispositivo Bluetooth",
+        "description": "Selecciona el dispositivo de audio Bluetooth al que deseas conectarte.",
+        "data": {
+          "mac_address": "Dispositivo"
+        }
+      }
+    },
+    "error": {
+      "no_devices_found": "No se encontraron dispositivos Bluetooth. Asegúrate de que estén encendidos y emparejables.",
+      "pairing_failed": "Error al intentar vincular o conectar el dispositivo."
+    },
+    "abort": {
+      "already_configured": "Este dispositivo ya está configurado."
+    }
+  }
+}

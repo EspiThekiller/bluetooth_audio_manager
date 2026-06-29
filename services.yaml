@@ -1,0 +1,11 @@
+connect_and_reload:
+  name: Connect and Reload Audio
+  description: Connects to the specified Bluetooth device and triggers an audio reload.
+  fields:
+    mac_address:
+      name: MAC Address
+      description: The MAC address of the Bluetooth device.
+      example: "00:11:22:33:44:55"
+      required: false
+      selector:
+        text:
