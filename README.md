@@ -2,7 +2,7 @@
 
 A custom component for Home Assistant that allows you to easily manage, pair, and connect Bluetooth audio devices directly from the Home Assistant interface. This integration solves common audio issues when connecting Bluetooth speakers to Home Assistant OS/Supervised by automatically reloading the audio subsystem when a device connects.
 
-![Icon](icon.svg)
+![Icon](custom_components/bluetooth_audio_manager/icon.svg)
 
 ### 1. Install via HACS
 *(Note: Make sure your GitHub repository is **Public**. If it is private, HACS won't be able to find it).*
