@@ -4,8 +4,19 @@ A custom component for Home Assistant that allows you to easily manage, pair, an
 
 ![Icon](icon.svg)
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=EspiThekiller&repository=bluetooth_audio_manager&category=integration)
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=bluetooth_audio_manager)
+### 1. Instalar vía HACS
+*(Nota: Asegúrate de que tu repositorio en GitHub sea **Público**. Si es privado, HACS no lo encontrará).*
+
+Haz clic en el siguiente botón para abrir HACS y añadir este repositorio a tu Home Assistant. Si el botón te da error, puedes añadir manualmente la URL `https://github.com/EspiThekiller/bluetooth_audio_manager` en HACS (Integraciones > 3 puntitos > Repositorios Personalizados).
+
+[![Añadir repositorio a HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=EspiThekiller&repository=bluetooth_audio_manager&category=integration)
+
+***
+
+### 2. Añadir y Configurar la Integración
+Una vez que hayas instalado el componente desde HACS y hayas **reiniciado Home Assistant**, haz clic en el siguiente botón para abrir la configuración y empezar a emparejar tus dispositivos de audio Bluetooth.
+
+[![Configurar Integración](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=bluetooth_audio_manager)
 
 ## Features
 
