@@ -4,6 +4,9 @@ A custom component for Home Assistant that allows you to easily manage, pair, an
 
 ![Icon](icon.svg)
 
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=EspiThekiller&repository=bluetooth_audio_manager&category=integration)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=bluetooth_audio_manager)
+
 ## Features
 
 - **UI Configuration (Config Flow):** Easily scan and select nearby Bluetooth devices from the Home Assistant Integrations UI. No YAML required!
