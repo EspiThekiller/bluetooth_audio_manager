@@ -1,0 +1,20 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Link Bluetooth Device",
+        "description": "Select the Bluetooth audio device you want to connect to.",
+        "data": {
+          "mac_address": "Device"
+        }
+      }
+    },
+    "error": {
+      "no_devices_found": "No Bluetooth devices found. Ensure they are powered on and in pairing mode.",
+      "pairing_failed": "Failed to pair or connect to the device."
+    },
+    "abort": {
+      "already_configured": "This device is already configured."
+    }
+  }
+}
